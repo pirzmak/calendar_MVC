@@ -1,0 +1,60 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="myCalendar">
+    <table>
+        <tr class="myTableRow myHeaderRow">
+            <th class="myTableRect myHeaderColumn myCornerButton" onclick="location.href='@Url.Action("Index","Home",new {id = ViewBag.Date-7})'">PREV</th>
+            <th class="myTableRect myHeaderRect">Monday</th>
+            <th class="myTableRect myHeaderRect">Tuesday</th>
+            <th class="myTableRect myHeaderRect">Wednesday</th>
+            <th class="myTableRect myHeaderRect">Thursday</th>
+            <th class="myTableRect myHeaderRect">Friday</th>
+            <th class="myTableRect myHeaderRect">Saturday</th>
+            <th class="myTableRect myHeaderRect">Monday</th>
+            <th class="myTableRect myHeaderColumn myCornerButton" onclick="location.href='@Url.Action("Index","Home",new {id = ViewBag.Date-7})'">PREV</th>
+        </tr>
+        @for (int row = 0; row < 4; row++)
+         {
+            <tr class="myTableRow">
+                <th class="myTableRect myHeaderColumn myHeaderRect">
+                   @ViewBag.Days[row][0].DateWeekNumber
+                </th>
+                @for (int col = 0; col < 7; col++)
+                {
+                    <td>
+                      <link href="~/Content/MyCalendar.css" rel="stylesheet" type="text/css" />
+                      <div class="myDayRect @(@ViewBag.Days[row][col].Date.Date == DateTime.Today ? "today" : "not")">
+                         <div class="myDayLabel" onclick="location.href='@Url.Action("Index", "Appointment", new {id = "new"})'">
+                            @ViewBag.Days[row][col].Date.ToString("dd.MM.yyyy")                         
+                         </div>
+                          @foreach(var a in @ViewBag.Days[row][col].AppointmentsList)
+                          {
+                              <div class="myAppoinmentRect" onclick="location.href='@Url.Action("Index", "Appointment", new {id = @a.AppointmentID})'">
+                                    @a.Title @a.StartTime.ToString(@"hh\:mm") - @a.EndTime.ToString(@"hh\:mm")</div>
+                          }
+                          <div class="footerDarRect" onclick="location.href='@Url.Action("Index", "Appointment", new {id = "new"})'">
+
+                          </div>
+                      </div>
+                    </td>
+                }
+                <th class="myTableRect myHeaderColumn myHeaderRect">
+                    @ViewBag.Days[row][0].DateWeekNumber
+                </th>
+            </tr>
+        }
+        <tr class="myTableRow myHeaderRow">
+            <th class="myTableRect myHeaderColumn myCornerButton" onclick="location.href='@Url.Action("Index","Home",new {id = ViewBag.Date+7})'">NEXT</th>
+            <th class="myTableRect myHeaderRow myHeaderRect">Monday</th>
+            <th class="myTableRect myHeaderRow myHeaderRect">Tuesday</th>
+            <th class="myTableRect myHeaderRow myHeaderRect">Wednesday</th>
+            <th class="myTableRect myHeaderRow myHeaderRect">Thursday</th>
+            <th class="myTableRect myHeaderRow myHeaderRect">Friday</th>
+            <th class="myTableRect myHeaderRow myHeaderRect">Saturday</th>
+            <th class="myTableRect myHeaderRow myHeaderRect">Monday</th>
+            <th class="myTableRect myHeaderColumn myCornerButton" onclick="location.href='@Url.Action("Index","Home",new {id = ViewBag.Date+7})'">NEXT</th>
+        </tr>
+    </table>
+</div>

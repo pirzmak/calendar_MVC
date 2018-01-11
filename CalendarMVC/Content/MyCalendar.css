@@ -1,0 +1,82 @@
+﻿
+table {
+    width: 100%;
+    border-collapse: separate !important;
+    border-spacing: 3px !important;
+    table-layout: fixed;
+}
+
+.myCalendar {
+    margin-top: 1.5rem;
+}
+
+.myTableRow {
+    height: 15rem;
+}
+
+.myTableRect {
+    border: 1px solid black;
+    border-radius: 3px;
+    text-align: center;
+}
+
+.myHeaderRow {
+    height: 5rem;
+}
+
+.myHeaderRect {
+    background-color: mediumpurple;
+}
+
+.myHeaderColumn {
+    width: 9rem;
+}
+
+.myCornerButton {
+    background-color: lightgreen;
+    cursor: pointer;
+}
+
+.myDayRect {
+    height: 15rem;
+    border: 1px solid black;
+    border-radius: 3px;
+    overflow-y: auto;
+    display: flex;
+    flex-flow: column;
+}
+
+.myDayLabel {
+    width: 100%;
+    padding: 0.5rem;
+    text-align: center;
+    border-bottom: 1px solid black;
+}
+
+.myAppoinmentRect {
+    margin: 0.1rem;
+    width: calc(100% - 0.2rem);
+    text-align: center;
+    border: 1.5px solid green;
+    border-radius: 3px;
+    color: green;
+    cursor: pointer;
+    background-color: lightgreen;
+}
+
+.footerDarRect {
+    height: 100%;
+    flex: 1 1 auto;
+}
+
+.col-sm-6 {
+    width: 30%;
+}
+
+.myAppointmentSettings {
+    padding: 1rem 10rem;
+}
+
+.today {
+    background-color: lightslategray;
+}

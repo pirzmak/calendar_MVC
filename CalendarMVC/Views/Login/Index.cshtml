@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "Login Page";
+    ViewBag.Name = "";
+}
+
+@using (Html.BeginForm("Login", "Login"))
+{
+<div class="myAppointmentSettings">
+    <div class="form-group">
+        <label for="usr">Login:</label>
+        <input type="text" class="form-control" value="@ViewBag.Name" id="Login" name="Login">
+    </div>   
+    
+    <button class="btn btn-default saveButton" id="submit" type="submit" value="Submit">Login</button>
+</div>
+}

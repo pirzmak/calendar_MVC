@@ -1,0 +1,77 @@
+﻿@using CalendarMVC
+@model CalendarMVC.Appointment
+
+@if (@ViewBag.Error != null && @ViewBag.Error)
+{
+    <div class="errorMessage">
+        @ViewBag.msg
+    </div>
+}
+
+@using (Html.BeginForm("Index", "Appointment"))
+{
+<div class="myAppointmentSettings">
+    @Html.HiddenFor(m => m.AppointmentID)
+    @Html.HiddenFor(m => m.timestamp)
+    <div class="form-group">
+        <label for="usr">Title:</label>
+        @Html.TextBoxFor(m => m.Title, new { Class = "form-control"})
+        <div class="errorMessage">
+            @Html.ValidationMessageFor(model => model.Title)
+            </div>
+        </div>
+    <div class="form-group">
+        <label for="usr">Description:</label>
+        @Html.TextAreaFor(m => m.Description, new { Class = "form-control" })
+        <div class="errorMessage">
+            @Html.ValidationMessageFor(model => model.Description)
+        </div>
+        </div>
+    <div class="">
+    <div class="row">
+        <div class='col-sm-6'>
+            <div class="form-group">
+                <div class='input-group date' id='datetimepicker3'>
+                    @Html.TextBoxFor(m => m.StartTime, new { @type = "time", Class = "form-control" })
+                    <div class="errorMessage">
+                        @Html.ValidationMessageFor(model => model.StartTime)
+                    </div>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-time"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class='col-sm-6'>
+            <div class="form-group">
+                <div class='input-group date' id='datetimepicker4'>
+                    @Html.TextBoxFor(m => m.EndTime, new { @type = "time", Class = "form-control" })
+                    <div class="errorMessage">
+                        @Html.ValidationMessageFor(model => model.EndTime)
+                    </div>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-time"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+        <div>
+            <div class="form-group">
+                <div class='input-group date' id='datetimepicker4'>
+                    @Html.TextBoxFor(m => m.AppointmentDate, new { @type = "datetime", Class = "form-control", @Value = Model.AppointmentDate.ToString("dd.MM.yyyy") })
+                    <div class="errorMessage">
+                        @Html.ValidationMessageFor(model => model.AppointmentDate)
+                        </div>
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+            </div>
+       </div>
+        <button class="btn btn-success saveButton" id="Save" type="submit" value="Save" name="save">Save</button>
+        <button class="btn btn-warning saveButton" id="cancel" type="submit" value="Cancel" name="cancel">Cancel</button>
+        <button class="btn btn-warning saveButton" id="delete" type="submit" value="Delete" name="delete">Delete</button>
+</div>
+}

@@ -1,0 +1,41 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+.myAppointmentSettings {
+    padding: 1rem 38rem;
+}
+
+.right {
+    float: right;
+}
+
+.navbar-header {
+    width: 100%;
+}
+
+.container {
+    max-width: 100% !important;
+}
+
+.errorMessage {
+    width:100%;
+    color: red;
+    text-align: center;
+}
+
